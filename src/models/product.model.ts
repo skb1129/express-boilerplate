@@ -5,9 +5,12 @@ export type ProductDocument = Document & {
   details?: string;
 };
 
-export const ProductSchema = new Schema({
-  name: String,
-  details: String,
-}, { versionKey: false });
+export const ProductSchema = new Schema(
+  {
+    name: String,
+    details: String,
+  },
+  { versionKey: false }
+);
 
 export const Product = model<ProductDocument>("Product", ProductSchema);
