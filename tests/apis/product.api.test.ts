@@ -4,7 +4,7 @@ import app from "../../src/app";
 import { ProductDocument } from "../../src/models";
 import { HTTPStatus } from "../../src/types";
 
-describe("Product API test suite", () => {
+describe("Test API: Product", () => {
   const request = supertest(app);
   let product = {
     name: "test name",
