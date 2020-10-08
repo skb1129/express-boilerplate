@@ -4,13 +4,14 @@ import { logger } from "../utils";
 import { HTTPStatus } from "../types";
 
 export function requestLogger(req: Request, res: Response, next: NextFunction): void {
-  const LOG = `METHOD=${req.method} API=${req.originalUrl} STATUS=${res.statusCode}`;
+  const requestLog = `${req.method} | ${req.originalUrl}`;
+  const responseLog = { status: res.statusCode };
   if (res.statusCode === HTTPStatus.InternalServerError) {
-    logger.error(LOG);
+    logger.error(requestLog, responseLog);
   } else if (res.statusCode >= HTTPStatus.BadRequest) {
-    logger.warn(LOG);
+    logger.warn(requestLog, responseLog);
   } else {
-    logger.info(LOG);
+    logger.info(requestLog, responseLog);
   }
   next();
 }
