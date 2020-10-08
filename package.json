@@ -5,11 +5,11 @@
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
-    "coverage": "jest --forceExit --coverage",
+    "coverage": "jest --runInBand --coverage",
     "dev": "ts-node src/server.ts",
     "prestart": "npm run build",
     "start": "node dist/server.js",
-    "test": "jest --forceExit"
+    "test": "jest --runInBand"
   },
   "author": "Surya Kant Bansal <suryakantbansal97@gmail.com>",
   "license": "MIT",

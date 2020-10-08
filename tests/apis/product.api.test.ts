@@ -1,10 +1,14 @@
 import supertest from "supertest";
 
 import app from "../../src/app";
+import { mongoDB } from "../../src/database";
 import { ProductDocument } from "../../src/models";
 import { HTTPStatus } from "../../src/types";
 
 describe("Test API: Product", () => {
+  beforeAll(mongoDB.connect);
+  afterAll(mongoDB.disconnect);
+
   const request = supertest(app);
   let product = {
     name: "test name",
