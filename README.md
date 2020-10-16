@@ -26,9 +26,10 @@ npm install
 Then you need to create a `.env` file with some required variables:
 ```shell script
 PORT=8000
-MONGODB_URI=mongodb://localhost:27017/express
 NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/express
 ```
+The default value of `PORT` is set to 8000.
 
 Now, you can start the application with the predefined scripts:
 ```shell script
@@ -55,7 +56,24 @@ The configuration for this is present inside the `package.json` file.
 
 While deploying the application, set the `NODE_ENV` variable in the `.env` file to `production`.
 
-The application can simply be deployed with the express server, or you can create a Docker Image for deployment.
+**Note:* If you want to use SSL for your server, you need to set `SSL_KEY_FILE` and `SSL_CERT_FILE` variables in the
+`.env` file. These variables should contain paths to the SSL key and certificate files.*
+
+The application can simply be deployed with the express server, or you can create a Docker image for deployment.
+
+### Docker
+
+There is a `Dockerfile` present in this project which can be used to create images that can be deployed in production.
+
+To build a Docker image, run:
+```shell script
+docker build . -t <tag>
+```
+
+To run this Docker image, run:
+```shell script
+docker run -p 8000:8000 -d --env-file .env <tag>
+```
 
 ## Built With
 
