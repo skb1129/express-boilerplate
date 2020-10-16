@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A boilerplate for Express backend server in TypeScript.",
   "main": "src/server.ts",
+  "repository": "https://github.com/skb1129/express-boilerplate",
   "scripts": {
     "build": "tsc",
     "coverage": "jest --runInBand --coverage",
