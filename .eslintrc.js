@@ -4,5 +4,5 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   env: { node: true },
-  ignorePatterns: ["dist/", "logs/"],
+  ignorePatterns: ["dist/", "logs/", "docs/"],
 };

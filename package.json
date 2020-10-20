@@ -10,7 +10,10 @@
     "dev": "ts-node src/server.ts",
     "prestart": "npm run build",
     "start": "node dist/server.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "clean-docs": "rm -r -v docs; mkdir docs",
+    "pregenerate-docs": "npm run build; npm run clean-docs",
+    "generate-docs": "jsdoc --verbose -c jsdoc.config.js"
   },
   "author": "Surya Kant Bansal <suryakantbansal97@gmail.com>",
   "license": "MIT",
@@ -30,7 +33,9 @@
     "eslint": "^7.11.0",
     "husky": "^4.3.0",
     "jest": "^26.5.3",
+    "jsdoc": "^3.6.6",
     "lint-staged": "^10.4.0",
+    "minami": "^1.2.3",
     "prettier": "^2.1.2",
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.1",
